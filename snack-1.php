@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html>
+
 <head>
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -15,51 +16,60 @@
     }
   </style>
 </head>
+
 <body>
-<?php 
+  <?php
   // Snack 1
   // Creiamo un array contenente le partite di basket di un’ipotetica tappa del calendario.
   // Ogni array avrà una squadra di casa e una squadra ospite, punti fatti dalla squadra di casa
   // e punti fatti dalla squadra ospite. Stampiamo a schermo tutte le partite con questo schema.
   // Olimpia Milano - Cantù | 55-60
 
-$partite = [
-  [
-    "squadraCasa" => [
-      "nome" => "Heat",
-      "punti" => "10"
-    ],
-    "squadraOspite" => [
-      "nome" => "Bulls",
-      "punti" => "30"
-    ]
-  ],
-  [
-    "squadraCasa" => [
-      "nome" => "Cavaliers",
-      "punti" => "20"
-    ],
-    "squadraOspite" => [
-      "nome" => "Sixers",
-      "punti" => "8"
-    ]
-  ],
-  [
-    "squadraCasa" => [
-      "nome" => "Raptors",
-      "punti" => "24"
-    ],
-    "squadraOspite" => [
-      "nome" => "Celtics",
-      "punti" => "20"
-    ]
-  ]
-];
-
-for ($i=0; $i < sizeof($partite) ; $i++)
-  echo $partite[$i]["squadraCasa"]["nome"]." - ".$partite[$i]["squadraOspite"]["nome"]." | ".$partite[$i]["squadraCasa"]["punti"]." - ".$partite[$i]["squadraOspite"]["punti"]."<br>";
-
-?>
+  $partita = [
+      'home_team' => 'Heat',
+      'guest_team' => 'Bulls',
+      'home_score' => 100,
+      'guest_score' => 0
+  ];
+  
+  $partite = [
+      $partita,
+      [
+          'home_team' => 'Cavaliers',
+          'guest_team' => 'Sixers',
+          'home_score' => 80,
+          'guest_score' => 100
+      ],
+      [
+          'home_team' => 'Raptors',
+          'guest_team' => 'Celtics',
+          'home_score' => 70,
+          'guest_score' => 90
+      ],
+  ];
+  
+  // var_dump($partite);
+  
+  ?>
+  
+  <ul>
+      <?php
+      for ($i = 0; $i < count($partite); $i++) {
+      ?>
+          <li>
+              <?php
+              echo "{$partite[$i]['home_team']} - {$partite[$i]['guest_team']} | "
+              ?>
+              <strong>
+                  <?php
+                  echo "{$partite[$i]['home_score']} - {$partite[$i]['guest_score']}"
+                  ?>
+              </strong>
+          </li>
+      <?php
+      }
+      ?>
+  </ul>
 </body>
-</html>
 
+</html>
